@@ -46,11 +46,13 @@ int main(void)
     	    fflush(stdin);
     	    scanf("%c", &respuesta);
 
+
     	    if(banderaP==1 || numero > 0)
     	    {
     	       acumP=acumP+numero;
     	       contP++;
     	    }
+    	    //**los negativos se me guardan como el minimo positivo,resolver**
     	    if(banderaP == 1 || (numero > 0 && numero < minimoP))
     	    {
     	       minimoP=numero;
