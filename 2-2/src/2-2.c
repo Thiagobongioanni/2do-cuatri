@@ -52,7 +52,7 @@ int main(void)
     	       acumP=acumP+numero;
     	       contP++;
     	    }
-    	    //**los negativos se me guardan como el minimo positivo,resolver**
+
     	    if(banderaP == 1 || (numero > 0 && numero < minimoP))
     	    {
     	       minimoP=numero;
