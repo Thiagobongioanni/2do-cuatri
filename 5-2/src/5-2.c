@@ -12,11 +12,26 @@ recibe y me devuelva el promedio.
 
 #include <stdio.h>
 #include <stdlib.h>
-#define TAM 5
+#include "biblioteca.h"
+#define TAM 2
+
 
 int main(void)
 {
+	setbuf(stdout,NULL);
 
+	int array[TAM];
+	int promedio=0;
+
+    for(int i=0;i<TAM;i++)
+    {
+        printf("ingrese numeros: ");
+        scanf("%d",&array[i]);
+    }
+    calcularPromedio(array,TAM,&promedio);
+
+    printf("el promedio es: %d",promedio);
 
 	return 0;
 }
+
