@@ -17,7 +17,7 @@ f) Listado de los números de las posiciones impares.
 
 #include <stdio.h>
 #include <stdlib.h>
-#define TAM 6
+#define TAM 10
 
 int main(void)
 {
@@ -29,6 +29,7 @@ int main(void)
 	int i;
 	int banderaMax=1;
 	int maximoPar;
+	int posicion;
 
 
 
@@ -64,15 +65,22 @@ int main(void)
 
 	    for(i=0;i<TAM;i++)
 	    {
-	    	//se mezclan los mensajes solucionar (lo demas funciona bien)
 	    	printf("los numeros ingresados son: %d\n",array[i]);
+	    }
+	    for(i=0;i<TAM;i++)
+	    {
 	    	if(array[i]>15)
 	    	{
-	    		printf("los numeros mayores a 15 son: %d\n",array[i]);
+	    	   printf("los numeros mayores a 15 son: %d\n",array[i]);
 	    	}
-	    	else if(!(array[i]%2==0))
-	    	{
-	    		 printf("los numeros impares son: %d\n",array[i]);
+	    }
+	    for(i=0;i<TAM;i++)
+	    {
+	        if(!(array[i]%2==0))
+	   	    {
+	        	 posicion=i;
+	    		 printf("la posicion de los numeros impares es: %d\n",posicion);
+
 	    	}
 	    }
 
