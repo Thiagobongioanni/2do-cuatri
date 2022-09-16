@@ -6,7 +6,7 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 int utn_getNumero(int* pResultado,char* mensaje,char* mensajeError,int minimo,int maximo,int reintentos)
 {
 	int bufferInt;
@@ -54,4 +54,18 @@ int utn_getNumeroFlotante(float* pResultado,char* mensaje,char* mensajeError,int
 	  }while(reintentos >=0);
 	}
 	return retorno;
+}
+int utn_getNombre(char *pResultado,char *mensaje,int tamanio)
+{
+  int retorno=-1;
+
+     if(pResultado != NULL && mensaje != NULL && tamanio > 0)
+     {
+	            printf("%s",mensaje);
+	            fflush(stdin);
+	            fgets(pResultado,tamanio,stdin);
+	            pResultado[strlen(pResultado)-1]='\0';
+	            retorno=0;
+	   }
+  return retorno;
 }
