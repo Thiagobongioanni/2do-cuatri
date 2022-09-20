@@ -4,8 +4,7 @@
  *  Created on: 14 sep. 2022
  *      Author: bongi
  */
-#include <stdio.h>
-#include <stdlib.h>
+
 #include "biblioteca_UTN.h"
 
 int ingresoCostos(int opcionCostos,float* costoHospedaje,float* costoComida,float* costoTransporte)

@@ -7,12 +7,9 @@
  Description : Hello World in C, Ansi-style
  ============================================================================
  */
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "biblioteca_UTN.h"
-#include "bibliotecaGeneral.h"
+
+#define TAM 6
 
 int main(void)
 {
@@ -30,7 +27,15 @@ int main(void)
 
       int numeroCamiseta;
       int posicion;
-      char confederacion[1];
+      char confederacion[22];
+      int i;
+
+      for(i=0;i<22;i++)
+      {
+
+    	 strcpy(&confederacion[i],"");
+
+      }
 
       int contArqueros=0;
       int contDefensa=0;
@@ -44,6 +49,15 @@ int main(void)
       int contConmebol=0;
       int contUefa=0;
       int contOfc=0;
+
+
+      float porcentajeAfc;
+      float porcentajeCaf;
+      float porcentajeConcacaf;
+      float porcentajeConmebol;
+      float porcentajeUefa;
+      float porcentajeOfc;
+
 
 		do
 		{
@@ -63,11 +77,13 @@ int main(void)
 		     break;
 
 		     case 2:
-		    	 if(posicion !=5 && totalJugadores < 2)
+		    	 if(posicion !=5 && totalJugadores < TAM)
 		    	 {
 
-		    		utn_getNumero(&numeroCamiseta,"ingrese el numero de camiseta: ","ingrese un numero valido",1,100,2);
-		    		utn_getNombre(confederacion,"ingrese la confederacion: ",10);
+		    		utn_getNumero(&numeroCamiseta,"ingrese el numero de camiseta: ","ingrese un numero valido",0,100,2);
+		    		utn_getNombre(confederacion,"ingrese la confederacion: ",22);
+		    		confederacion[0] = toupper(confederacion[0]);
+
 		    		if(strcmp("Afc",confederacion)==0)
 		    		{
 		    			contAfc++;
@@ -92,12 +108,13 @@ int main(void)
 		    		{
 		    			contOfc++;
 		    		}
-		    		//strcmp()= Compara 2 cadenas de caracter incluyendo mayusculas y minusculas
-		    		    //strcmp(cadena1, cadena2)- Devuelve un numero entero
-		    		    //devuelve 0 = Si las cadenas son iguales
-		    		    //devuelve >0 = Si cadena1 > cadena2
-		    		    //devuelve <0 = Si cadena1 < cadena2
-		    		    //stricmp = Compara dos cadenas despreciendo mayusculas y minusculas
+		    		else
+		    		{
+		    			printf("no existe esa confederacion");
+		    		}
+
+
+
                     printf("\n1)arquero"
                            "\n2)defensor"
                            "\n3)mediocampista"
@@ -110,7 +127,7 @@ int main(void)
                     switch(posicion)
                     {
                     	case 1:
-                    	   if(totalJugadores<2)
+                    	   if(totalJugadores<TAM)
                     	   {
                               contArqueros++;
                               totalJugadores=totalJugadores+contArqueros;
@@ -118,7 +135,7 @@ int main(void)
            		    	break;
 
                         case 2:
-                            if(totalJugadores<2)
+                            if(totalJugadores<TAM)
                             {
                                contDefensa++;
                                totalJugadores=totalJugadores+contDefensa;
@@ -126,14 +143,14 @@ int main(void)
            		   	    break;
 
                     	case 3:
-                    	    if(totalJugadores<2)
+                    	    if(totalJugadores<TAM)
                     	    {
                     	       contMedio++;
                     	       totalJugadores=totalJugadores+contMedio;
                     	    }
                     	break;
                         case 4:
-                    	    if(totalJugadores<2)
+                    	    if(totalJugadores<TAM)
                     	    {
                     	       contDelantero++;
                     	       totalJugadores=totalJugadores+contDelantero;
@@ -149,6 +166,13 @@ int main(void)
 
 		     case 3:
 
+                  porcentajeAfc=contAfc*100/TAM;
+		    	  porcentajeCaf=contCaf*100/TAM;
+		    	  porcentajeConcacaf=contConcacaf*100/TAM;
+		    	  porcentajeConmebol=contConmebol*100/TAM;
+		    	  porcentajeUefa=contUefa*100/TAM;
+		    	  porcentajeOfc=contOfc*100/TAM;
+
                   total=costoHospedaje+costoComida+costoTransporte;
                   printf("calculos realizados");
 
@@ -159,12 +183,12 @@ int main(void)
 
 		    	 printf("\ncosto total: %.2f",total);
 		    	 printf("\ntotal jugadores es de: %d",totalJugadores);
-		    	 printf("\njugadores de AFC: %d"
-		    			"\njugadores de CAF: %d"
-		    			"\njugadores de CONCACAF: %d"
-		    			"\njugadores de CONMEBOL: %d"
-		    			"\njugadores de UEFA: %d "
-		    			"\njugadores de OFC %d: \n",contAfc,contCaf,contConcacaf,contConmebol,contUefa,contOfc);
+		    	 printf("\njugadores de AFC: %.2f"
+		    			"\njugadores de CAF: %.2f"
+		    			"\njugadores de CONCACAF: %.2f"
+		    			"\njugadores de CONMEBOL: %.2f"
+		    			"\njugadores de UEFA: %.2f "
+		    			"\njugadores de OFC %.2f: \n",porcentajeAfc,porcentajeCaf,porcentajeConcacaf,porcentajeConmebol,porcentajeUefa,porcentajeOfc);
 		     break;
 
 		     default:

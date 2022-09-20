@@ -4,6 +4,11 @@
  *  Created on: 14 sep. 2022
  *      Author: bongi
  */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include "bibliotecaGeneral.h"
 
 #ifndef BIBLIOTECA_UTN_H_
 #define BIBLIOTECA_UTN_H_

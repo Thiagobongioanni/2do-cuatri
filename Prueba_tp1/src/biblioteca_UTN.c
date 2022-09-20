@@ -4,9 +4,7 @@
  *  Created on: 14 sep. 2022
  *      Author: bongi
  */
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "biblioteca_UTN.h"
 int utn_getNumero(int* pResultado,char* mensaje,char* mensajeError,int minimo,int maximo,int reintentos)
 {
 	int bufferInt;
@@ -64,6 +62,7 @@ int utn_getNombre(char *pResultado,char *mensaje,int tamanio)
 	            printf("%s",mensaje);
 	            fflush(stdin);
 	            fgets(pResultado,tamanio,stdin);
+	            printf("pResultado: %s",pResultado);
 	            pResultado[strlen(pResultado)-1]='\0';
 	            retorno=0;
 	   }
